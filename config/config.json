@@ -1,18 +1,19 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "root",
+    "database": "example",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "testdb",
+    "password": "root",
+    "database": "example",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
+   
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",

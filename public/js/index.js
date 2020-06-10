@@ -1,4 +1,4 @@
-// Get references to page elements
+sudo // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
