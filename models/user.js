@@ -42,6 +42,10 @@ module.exports = function(sequelize, Sequelize) {
         status: {
             type: Sequelize.ENUM('active', 'inactive'),
             defaultValue: 'active'
+        },
+
+        admin: {
+            type: Sequelize.BOOLEAN
         }
 
     });
