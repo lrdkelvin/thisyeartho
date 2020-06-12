@@ -1,3 +1,5 @@
+//this is our index file to set up sequelize
+
 "use strict";
 
 var fs = require("fs");
