@@ -11,11 +11,41 @@ We should be able to make certain parts of this page appear depending on the use
  
 <head>
     <title>Passport with Sequelize</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </head>
  
 <body>
     <h2>Dashboard</h2>
     <h5>Hurray! you are logged in.</h5>
+    <div class="container">
+        <div class="jumbotron">
+          <h1>Welcome to fact check palace!</h1>
+          <h3>Wondering about an article?  Search the article here! (search by topic)</h3>
+          <hr>
+          <input type="text" id="news-search" class="form-control">
+          <button class="btn btn-danger btn-lg" id="search-button">Search</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+          <h3><strong>Your search</strong></h3>
+        </div>
+        <div class="card-body">
+          <h2 id="article-title"></h2>
+          <div id="stats">
+            <h3><strong>Author:</strong> <span id="article-author"></span></h3>
+            <h3><strong>Source:</strong> <span id="article-source"></span></h3>
+            <h3><strong>Url:</strong> <span id="article-url"></span></h3>
+          </div>
+        </div>
+      </div>
+
+
+    <script src= "./js/factcheck.js"></script>
  
 </body>
  
