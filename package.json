@@ -11,16 +11,19 @@
   },
   "license": "ISC",
   "dependencies": {
+    "article-parser": "^4.2.1",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.1",
+    "horseman-article-parser": "^0.7.11",
     "mysql2": "^1.6.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.8.6"
+    "puppeteer": "^3.3.0",
+    "sequelize": "^5.21.12"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -31,5 +34,15 @@
     "eslint-plugin-prettier": "^3.1.0",
     "mocha": "^6.1.4",
     "prettier": "^1.17.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lrdkelvin/thisyeartho.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/lrdkelvin/thisyeartho/issues"
+  },
+  "homepage": "https://github.com/lrdkelvin/thisyeartho#readme"
 }
