@@ -1,5 +1,4 @@
 // This is our basic javascript file that will include the logic for buttons
-<<<<<<< HEAD
 //and probably calls to outside APIs 
 //I renamed the file factcheck because there was already an index.js in the models folder
 
@@ -82,25 +81,25 @@ app.searchNews($("#news-search").val(), {}, function(results) {
 
 })
 })
-=======
 // and probably calls to outside APIs
 // I renamed the file factcheck because there was already an index.js in the models folder
 $(function() {
-  // button for article-parser
-  $("#extractInfo").on("click", function() {
-    event.preventDefault();
-
-    var newURL = {
-      url: $("#itemURL").val(),
-    };
-    console.log(newURL);
-    // Send the POST request.
-    $.ajax("/api/articleVal", {
-      type: "POST",
-      data: newURL,
-    }).then(function() {
-      location.reload();
+    // button for article-parser
+    $("#extractInfo").on("click", function() {
+      event.preventDefault();
+  
+      var newURL = {
+        url: $("#itemURL").val(),
+      };
+      console.log(newURL);
+      // Send the POST request.
+      $.ajax("/api/articleVal", {
+        type: "POST",
+        data: newURL,
+      }).then(function() {
+        location.reload();
+      });
     });
   });
-});
->>>>>>> ebb9e38c850cfd2613e45b09488d8be8352cca8f
+  >>>>>>> ebb9e38c850cfd2613e45b09488d8be8352cca8f
+  
