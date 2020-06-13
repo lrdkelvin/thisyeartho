@@ -12,7 +12,7 @@ module.exports = function(app, passport) {
 
   //this sends the signup page 
   app.get("/signup", function(req,res) {
-    res.sendFile("signin.html", { root: "public" });
+    res.sendFile("signup.html", { root: "public" });
   });
 
   //this sends the signin page
