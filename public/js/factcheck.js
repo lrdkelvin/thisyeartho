@@ -42,7 +42,6 @@ const app = {
       const querystring = "q=" + searchTerm + "&sortby=relevancy&apiKey=8d6bfe70b53d4b40aa6a8d5385f0f0de";
 
       app.search(baseUrl + querystring, function(response) {
-        console.log("Search Board Games: " + response.articles[0].title);
         callback(response);
       });
 
@@ -54,12 +53,28 @@ $("#search-button").on("click", function() {
 
 app.searchNews($("#news-search").val(), {}, function(results) {
 
+    var res = results.articles;
+    var userInput = $("#user-input").val();
+
     $(".card").show();
+    $("#user-input").html(userInput);
     console.log(results)
-    $("#article-title").html(results.articles[0].title);
-    $("#article-author").html(results.articles[0].author);
-    $("#article-source").html(results.articles[0].source.name);
-    $("#article-url").html(results.articles[0].url);
+    $("#article-title").html(res[0].title);
+    $("#article-author").html(res[0].author);
+    $("#article-source").html(res[0].source.name);
+    $("#article-desc").html(res[0].description)
+    $("#article-url").html(res[0].url);
+    $("#article-url").attr("href", res[0].url);
+    $("#article-title2").html(res[1].title);
+    $("#article-author2").html(res[1].author);
+    $("#article-source2").html(res[1].source.name);
+    $("#article-desc2").html(res[1].description)
+    $("#article-url2").html(res[1].url);
+    $("#article-title3").html(res[2].title);
+    $("#article-author3").html(res[2].author);
+    $("#article-source3").html(res[2].source.name);
+    $("#article-desc3").html(res[2].description)
+    $("#article-url3").html(res[2].url);
 
 
     
