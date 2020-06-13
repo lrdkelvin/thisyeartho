@@ -11,6 +11,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "article-parser": "^4.2.1",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
@@ -31,5 +32,15 @@
     "eslint-plugin-prettier": "^3.1.0",
     "mocha": "^6.1.4",
     "prettier": "^1.17.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lrdkelvin/thisyeartho.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/lrdkelvin/thisyeartho/issues"
+  },
+  "homepage": "https://github.com/lrdkelvin/thisyeartho#readme"
 }
