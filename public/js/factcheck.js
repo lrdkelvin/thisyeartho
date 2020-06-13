@@ -101,5 +101,6 @@ $(function() {
       });
     });
   });
-  >>>>>>> ebb9e38c850cfd2613e45b09488d8be8352cca8f
+  
+  // ebb9e38c850cfd2613e45b09488d8be8352cca8f
   
