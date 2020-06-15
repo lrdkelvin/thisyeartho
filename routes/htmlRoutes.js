@@ -61,9 +61,13 @@ module.exports = function(app, passport) {
     })
   );
 
-  //once logged in -- index.html
-  app.get("/index", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+  //once logged in as admin user -- admin.html
+  app.get("/admin", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/admin.html"));
   });
 
+  //once logged in as normal user -- add.html
+  app.get("/add", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/add.html"));
+  });
 };
