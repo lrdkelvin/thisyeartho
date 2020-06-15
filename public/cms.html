@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>CMS - Express</title>
+  <title>Add New Item</title>
   <!-- Latest compiled and minified CSS & JS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
@@ -12,6 +12,12 @@
 </head>
 
 <body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1>Article Validator Pro</h1>
+      <p>Our mission is to make provide you with the most accurate validation.</p>
+    </div>
+  </div>
   <div class="container">
     <div class="row">
       <div class="row">
@@ -22,21 +28,20 @@
       <div class="col-md-5 offset-md-3">
         <form id="cms">
           <div class="form-group">
-            <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title">
+            <label for="title">URL:</label>
+            <input type="text" class="form-control" placeholder="https://www.example.com" id="title">
             <br />
-            <label for="body">Body:</label>
-            <textarea class="form-control" rows="10" id="body"></textarea>
             <div class="form-group">
               <label for="category">Select Category:</label>
               <select class="custom-select" id="category">
-                <option value="Personal">Personal</option>
-                <option value="Product Review">Product Review</option>
-                <option value="Political">Political</option>
+                <option value="Article">Article</option>
+                <option value="Video">Video</option>
+                <option value="Image">Image</option>
+                <option value="Other">Other</option>
               </select>
             </div>
             <br />
-            <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
+            <button type="submit" class="btn btn-info submit btn-lg">Submit</button>
           </div>
         </form>
       </div>
