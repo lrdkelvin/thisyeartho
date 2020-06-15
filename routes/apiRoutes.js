@@ -1,4 +1,4 @@
-//This is our api routes file. It will send requests to our database and return the info. 
+//This is our api routes file. It will send requests to our database and return the info.
 //This is basically the sequelize ORM making it so we don't have to write sql statements.
 //This is still the basic example file, so none of this code currently does anything.
 
@@ -21,8 +21,46 @@ module.exports = function(app) {
 
   // This is a delete route that removes an item based on its id
   app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
       res.json(dbExample);
+    });
+  });
+
+  ///////////// ARTICLE PARSER  ////////////
+
+  //finds all articles parsed
+  app.get("/api/articles", function(req, res) {
+    // Add sequelize code to find all posts, and return them to the user with res.json
+    db.articleVal.findAll({}).then(function(factCheck) {
+      res.json(factCheck);
+    });
+  });
+
+  // Get route for returning posts of a specific category
+  app.get("/api/articles/category/:category", function(req, res) {
+    // Add sequelize code to find all posts where the category is equal to req.params.category,
+    // return the result to the user with res.json
+    db.articleVal.findAll({
+      where: {
+        category: req.params.category,
+      },
+    }).then(function(factCheck) {
+      res.json(factCheck);
+    });
+  });
+
+  // POST route for saving a new post
+  app.post("/api/articles", function(req, res) {
+    // Add sequelize code for creating a post using req.body,
+    // then return the result using res.json
+    db.articleVal.create({
+      url: req.body.url,
+      category: req.body.category,
+      rating: req.body.rating,
+    }).then(function(factCheck) {
+      res.json(factCheck);
     });
   });
 };
