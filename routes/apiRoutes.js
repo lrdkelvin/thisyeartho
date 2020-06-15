@@ -5,7 +5,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // This is how to get everything from a table to display
+/*   // This is how to get everything from a table to display
   app.get("/api/examples", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
@@ -26,7 +26,7 @@ module.exports = function(app) {
     ) {
       res.json(dbExample);
     });
-  });
+  }); */
 
   ///////////// ARTICLE PARSER  ////////////
 

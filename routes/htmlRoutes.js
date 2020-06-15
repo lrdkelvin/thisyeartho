@@ -61,6 +61,7 @@ module.exports = function(app, passport) {
     })
   );
 
+///////////////// admin and add ///////////////////
   //once logged in as admin user -- admin.html
   app.get("/admin", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/admin.html"));
