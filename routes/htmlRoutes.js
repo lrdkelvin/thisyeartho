@@ -1,7 +1,7 @@
 //this file is our html routes, which tells the browser which html files to display
 //depending on the address
 
-var db = require("../models");
+//var db = require("../models");
 var path = require("path");
 
 module.exports = function(app, passport) {

@@ -16,6 +16,10 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: null,
       validate: { min: 0, max: 10 }
     },
+    body: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    }
   });
   return articleVal;
 };

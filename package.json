@@ -19,7 +19,7 @@
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.1",
     "horseman-article-parser": "^0.7.11",
-    "mysql2": "^1.6.5",
+    "mysql2": "^1.7.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "puppeteer": "^3.3.0",

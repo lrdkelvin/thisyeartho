@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   // If we have this section in our url, we pull out the post id from the url
   // In localhost:8080/cms?post_id=1, postId is 1
-  if (url.indexOf("?post_id=") !== -1) {
+  if (url.indexOf("?url_id=") !== -1) {
     itemId = url.split("=")[1];
     getItemData(itemId);
   }
