@@ -8,67 +8,74 @@ We should be able to make certain parts of this page appear depending on the use
 
 <!DOCTYPE html>
 <html>
- 
+
 <head>
-    <title>Passport with Sequelize</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <title>Passport with Sequelize</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 </head>
- 
+
 <body>
-
+  <div class="jumbotron jumbotron-fluid text-center pt-5">
     <div class="container">
-        <div class="jumbotron">
-          <h1>Welcome to fact check palace!</h1>
-
-          <h3>Wondering about an article?  Search the article here! (search by topic)</h3>
-          <hr>
-          <input type="text" id="news-search" class="form-control">
-          <button class="btn btn-danger btn-lg" id="search-button">Search</button>
-        </div>
+      <h1>Article Validator Pro</h1>
+      <h3>Our mission is to provide you with the most accurate validation.</h3>
     </div>
-    <div class="card">
-        <div class="card-header">
-          <h3><strong>Search results for: </strong><strong id ="user-input"></strong></h3>
-        </div>
-        <div class="card-body">
-          <h2 id="article-title"></h2>
-          <div class="container-fluid">
-            <h3><strong>Author:</strong> <span id="article-author"></span></h3>
-            <h3><strong>Source:</strong> <span id="article-source"></span></h3>
-            <h3><strong>Description:</strong> <span id="article-desc"></span></h3>
-            <h3><strong>Url:</strong> <a href= "" id="article-url"></a></h3>
-          </div>
-        </div>
+  </div>
+  <div class="container">
+    <h2>Welcome to fact check palace!</h2>
 
-        
-          <div class="card-body">
-            <h2 id="article-title2"></h2>
-            <div class="container-fluid">
-              <h3><strong>Author:</strong> <span id="article-author2"></span></h3>
-              <h3><strong>Source:</strong> <span id="article-source2"></span></h3>
-              <h3><strong>Description:</strong> <span id="article-desc2"></span></h3>
-              <h3 href= ""><strong>Url:</strong> <a href = "" id="article-url2"></a></h3>
-            </div>
-          </div>
+    <h4 class="mt-4 mb-5">Wondering about an article? Search the article here!</h4>
+    <hr>
+    <label for="news-search" class="mt-3">Enter Topic:</label>
+    <input type="text" id="news-search" placeholder="ex. global warming" class="form-control mb-5">
+    <button class="btn btn-dark btn-lg offset-md-3" id="search-button">Search</button>
 
-          <div class="card-body">
-            <h2 id="article-title3"></h2>
-            <div class="containter-fluid">
-              <h3><strong>Author:</strong> <span id="article-author3"></span></h3>
-              <h3><strong>Source:</strong> <span id="article-source3"></span></h3>
-              <h3><strong>Description:</strong> <span id="article-desc3"></span></h3>
-              <h3><strong>Url:</strong> <a href = "" id ="article-url3"></a></h3>
-            </div>
-          </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h3><strong>Search results for: </strong><strong id="user-input"></strong></h3>
+    </div>
+    <div class="card-body">
+      <h2 id="article-title"></h2>
+      <div class="container-fluid">
+        <h3><strong>Author:</strong> <span id="article-author"></span></h3>
+        <h3><strong>Source:</strong> <span id="article-source"></span></h3>
+        <h3><strong>Description:</strong> <span id="article-desc"></span></h3>
+        <h3><strong>Url:</strong> <a href="" id="article-url"></a></h3>
       </div>
+    </div>
 
 
-    <script src= "./js/factcheck.js"></script>
- 
+    <div class="card-body">
+      <h2 id="article-title2"></h2>
+      <div class="container-fluid">
+        <h3><strong>Author:</strong> <span id="article-author2"></span></h3>
+        <h3><strong>Source:</strong> <span id="article-source2"></span></h3>
+        <h3><strong>Description:</strong> <span id="article-desc2"></span></h3>
+        <h3 href=""><strong>Url:</strong> <a href="" id="article-url2"></a></h3>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <h2 id="article-title3"></h2>
+      <div class="containter-fluid">
+        <h3><strong>Author:</strong> <span id="article-author3"></span></h3>
+        <h3><strong>Source:</strong> <span id="article-source3"></span></h3>
+        <h3><strong>Description:</strong> <span id="article-desc3"></span></h3>
+        <h3><strong>Url:</strong> <a href="" id="article-url3"></a></h3>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./js/factcheck.js"></script>
+
 </body>
- 
+
 </html>
