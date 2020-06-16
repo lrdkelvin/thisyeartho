@@ -4,36 +4,36 @@
 <head>
   <meta charset="UTF-8">
   <title>Administrator</title>
-  <!-- Latest compiled and minified CSS & JS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 
 <body>
-  <div class="jumbotron jumbotron-fluid">
+  <div class="jumbotron jumbotron-fluid text-center pt-5">
     <div class="container">
       <h1>Article Validator Pro</h1>
-      <p>Our mission is to make provide you with the most accurate validation.</p>
+      <h3>Our mission is to provide you with the most accurate validation.</h3>
     </div>
   </div>
   <div class="container">
-    <div class="row mt-4">
-      <div class="col-md-4">
-        <div class="form-group">
+    <div class="row mt-4 pt-5">
+      <div class="col-md-4 offset-md-3">
+        <div class="form-group text-body">
           <select class="custom-select" id="category">
             <option selected value="">All Categories</option>
             <option value="Article">Article</option>
             <option value="Video">Video</option>
             <option value="Image">Image</option>
             <option value="Other">Other</option>
-
           </select>
         </div>
       </div>
       <div class="col-md-2">
-        <a class="btn btn-info" href="/add">Add New Item</a>
+        <a class="text-light btn btn-dark" href="/add">Add New Item</a>
       </div>
     </div>
     <div class="row">

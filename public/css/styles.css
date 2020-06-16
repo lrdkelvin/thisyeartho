@@ -2,11 +2,11 @@ button.submit {
   float: right;
 }
 
-form#cms {
+form#add {
   margin-top: 50px;
 }
 
-#cms textarea {
+#add textarea {
   resize: none;
 }
 
@@ -48,4 +48,21 @@ button.edit {
 
 .signUpBtn {  
   text-shadow: 2px 2px 4px #000000;
+}
+
+.jumbotron {
+  background-image: url("../img/start.jpg");
+  background-size: 100%;
+  background-repeat: repeat-x repeat-y;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.adminOnly {
+  float: right;
+}
+
+#search-button {
+  float: right;
 }
