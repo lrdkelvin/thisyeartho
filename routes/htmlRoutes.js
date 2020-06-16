@@ -51,7 +51,7 @@ module.exports = function(app, passport) {
   }
 
   function isAdmin(req, res, next) {
-    if (!req.user || !req.user.admin) {
+    if (!req.user || !req.user.userAdmin) {
       next(new Error("Permission denied."));
       return;
     }

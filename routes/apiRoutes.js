@@ -39,8 +39,7 @@ module.exports = function(app) {
     db.articleVal
       .create({
         url: req.body.url,
-        category: req.body.category,
-        rating: req.body.rating,
+        category: req.body.category
       })
       .then(function(factCheck) {
         res.json(factCheck);
