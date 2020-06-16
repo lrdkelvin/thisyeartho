@@ -1,3 +1,13 @@
 
 DROP DATABASE IF EXISTS factCheck;
 CREATE DATABASE factCheck;
+USE factCheck;
+
+CREATE TABLE articleVal
+(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	url VARCHAR (255) NOT NULL,
+	category VARCHAR (255) NOT NULL,
+	rating INT,
+	body VARCHAR (255)
+)
