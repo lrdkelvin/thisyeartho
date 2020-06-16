@@ -6,21 +6,6 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-    });
-  });
-
-  // This is our post route that is adding an item to a table
-  app.post("/api/users", function(req, res) {
-    db.User.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // This is a delete route that removes an item based on its id
-
-      res.json(dbExample);
-    });
-  }); */
 
   ///////////// ARTICLE PARSER  ////////////
 

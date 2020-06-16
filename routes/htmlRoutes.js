@@ -7,11 +7,10 @@ var path = require("path");
 module.exports = function(app, passport) {
   //this sends the user to the signup page as a default but this can be changed later
   app.get("/", function(req, res) {
-    res.sendFile("signup.html", { root: "public" });
+    res.sendFile("signin.html", { root: "public" });
   });
 
 
-  });
 
   //this sends the signin page
   app.get("/signin", function(req, res) {
@@ -44,10 +43,23 @@ module.exports = function(app, passport) {
 
   //this is a function that checks to see if the user is logged in
   function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) return next();
+    if (req.isAuthenticated()) 
+    
+    return next();
 
     res.redirect("/signin");
   }
+
+  function isAdmin(req, res, next) {
+    if (!req.user || !req.user.admin) {
+      next(new Error("Permission denied."));
+      return;
+    }
+
+    next();
+
+  }
+  
 
   //this checks that the signin was done correctly
   app.post(
@@ -61,7 +73,7 @@ module.exports = function(app, passport) {
 
 ///////////////// admin and add ///////////////////
   //once logged in as admin user -- admin.html
-  app.get("/admin", function(req, res) {
+  app.get("/admin", isAdmin, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/admin.html"));
   });
 
