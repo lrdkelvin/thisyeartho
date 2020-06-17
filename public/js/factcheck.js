@@ -2,7 +2,12 @@
 //and probably calls to outside APIs 
 //I renamed the file factcheck because there was already an index.js in the models folder
 
+
 $(".card").hide();
+
+$(document).ajaxError(function(){
+  alert("An error occurred!");
+});
 
 function runSearch() {
 
@@ -18,15 +23,7 @@ const app = {
    * @param callback
    * @return {json}
    */
-  search(url, callback) {
-    $.ajax({
-      url: url,
-      method: "GET",
-      success: function (result) {
-        callback(result);
-      }
-    });
-  },
+  
   /**
   * @param {string} searchTerm - article search term provided by user
   * @param {number} platform - The platform that we want to search under that we get from platform dropdown.
@@ -36,29 +33,38 @@ const app = {
   * @param callback
   */
 
-  searchNews(searchTerm, options, callback) {
-      const baseUrl = "https://newsapi.org/v2/everything?";
+  searchNews(searchTerm, callback) {
+      //const baseUrl = "https://newsapi.org/v2/everything?";
       //will change api key when I incorporate the .env file
-      const querystring = "q=" + searchTerm + "&sortby=relevancy&apiKey=8d6bfe70b53d4b40aa6a8d5385f0f0de";
+     // const querystring = "q=" + searchTerm + "&apiKey=8d6bfe70b53d4b40aa6a8d5385f0f0de";
 
-      app.search(baseUrl + querystring, function(response) {
-        callback(response);
-      });
-
-
-  }
+      //app.search(baseUrl + querystring, function(response) {
+        //callback(response);new
+      //});
+      $.ajax({
+        url: "api/searchNews",
+        method: "GET",
+        data: {
+          searchTerm: searchTerm
+        } ,
+        success: function(response) {
+          console.log(response);
+          callback(response);
+        }
+        })
+    }
 
 }
 $("#search-button").on("click", function() {
+  console.log("button clicked");
 
-app.searchNews($("#news-search").val(), {}, function(results) {
-
+app.searchNews($("#news-search").val(), function(results) {
+  console.log(results);
     var res = results.articles;
     var userInput = $("#user-input").val();
 
     $(".card").show();
     $("#user-input").html(userInput);
-    console.log(results)
     $("#article-title").html(res[0].title);
     $("#article-author").html(res[0].author);
     $("#article-source").html(res[0].source.name);

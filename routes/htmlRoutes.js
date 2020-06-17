@@ -10,7 +10,9 @@ module.exports = function(app, passport) {
     res.sendFile("signin.html", { root: "public" });
   });
 
-
+  app.get("/signup", function(req, res) {
+    res.sendFile("signup.html", { root: "public" });
+  });
 
   //this sends the signin page
   app.get("/signin", function(req, res) {
@@ -37,7 +39,7 @@ module.exports = function(app, passport) {
   //at some point there will be a button that can be clicked to run this
   app.get("/logout", function(req, res) {
     req.session.destroy(function(err) {
-      res.redirect("/");
+      res.redirect("/signin");
     });
   });
 
@@ -78,7 +80,7 @@ module.exports = function(app, passport) {
   });
 
   //once logged in as normal user -- add.html
-  app.get("/dashboard", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
+  app.get("/add", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/add.html"));
   });
 };
