@@ -5,10 +5,6 @@
 
 $(".card").hide();
 
-$(document).ajaxError(function(){
-  alert("An error occurred!");
-});
-
 function runSearch() {
 
 }
@@ -61,7 +57,7 @@ $("#search-button").on("click", function() {
 app.searchNews($("#news-search").val(), function(results) {
   console.log(results);
     var res = results.articles;
-    var userInput = $("#user-input").val();
+    var userInput = $("#news-search").val();
 
     $(".card").show();
     $("#user-input").html(userInput);
