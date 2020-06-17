@@ -30,13 +30,6 @@ const app = {
   */
 
   searchNews(searchTerm, callback) {
-      //const baseUrl = "https://newsapi.org/v2/everything?";
-      //will change api key when I incorporate the .env file
-     // const querystring = "q=" + searchTerm + "&apiKey=8d6bfe70b53d4b40aa6a8d5385f0f0de";
-
-      //app.search(baseUrl + querystring, function(response) {
-        //callback(response);new
-      //});
       $.ajax({
         url: "api/searchNews",
         method: "GET",

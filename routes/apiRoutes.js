@@ -95,8 +95,6 @@ module.exports = function(app) {
     })
       .then(function (response) {
         res.json(response.data);
-        console.log(response.data)
-        console.log("the whole search is: " + totalURL)
       }).catch(error => console.log(error))
   });
 };
