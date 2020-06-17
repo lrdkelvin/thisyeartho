@@ -11,14 +11,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     rating: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: null,
-      validate: { min: 0, max: 10 }
-    },
-    body: {
-      type: DataTypes.TEXT,
-      allowNull: true,
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
   return articleVal;

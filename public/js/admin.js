@@ -77,7 +77,7 @@ $(document).ready(function() {
     newItemCardBody.addClass("card-body");
     var newItemBody = $("<p>");
     newItemTitle.text(item.url + " ");
-    newItemBody.text(item.body);
+    newItemBody.text(item.rating);
     var formattedDate = new Date(item.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
     newItemDate.text(formattedDate);
@@ -110,7 +110,7 @@ $(document).ready(function() {
       .parent()
       .parent()
       .data("item");
-    window.location.href = "/add?url_id=" + currentItem.id;
+    window.location.href = "/dashboard?url_id=" + currentItem.id;
   }
 
   // This function displays a message when there are no posts
@@ -118,7 +118,7 @@ $(document).ready(function() {
     itemContainer.empty();
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No items yet for this category, navigate <a href='/add'>here</a> in order to submit an item for validation.");
+    messageH2.html("No items yet for this category, navigate <a href='/dashboard'>here</a> in order to submit an item for validation.");
     itemContainer.append(messageH2);
   }
 

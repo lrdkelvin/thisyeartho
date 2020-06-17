@@ -75,33 +75,36 @@ We should be able to make certain parts of this page appear depending on the use
   </div>
 
   <div class="container mrg-top-5">
-        <form id="addNew">
-          <div class="form-group">
-            <label for="urlToBe">URL:</label>
-            <input type="text" class="form-control" placeholder="https://www.example.com" id="urlToBe" />
-          </div>
-          <br>
-          <div class="form-group">
-            <label for="category">Select Category:</label>
-            <select class="custom-select" id="category">
-              <option value="Article">Article</option>
-              <option value="Video">Video</option>
-              <option value="Image">Image</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <br>
-          <button type="submit" class="btn btn-dark submit btn-lg">Submit</button>
-        </form>
+    <form id="addNew">
+      <div class="form-group">
+        <label for="urlToBe">URL:</label>
+        <input type="text" class="form-control" placeholder="https://www.example.com" id="urlToBe" />
+        <br>
+        <label for="rating">Remarks:</label>
+        <textarea class="form-control" rows="10" id="rating"></textarea>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="category">Select Category:</label>
+        <select class="custom-select" id="category">
+          <option value="Article">Article</option>
+          <option value="Video">Video</option>
+          <option value="Image">Image</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-dark submit btn-lg">Submit</button>
+    </form>
   </div>
 
   <div class="container mt-5">
-        <a class="btn btn-sm btn-danger adminOnly mrg-top-5 mb-5" href="./admin.html">Go to Items (Admin Only)</a>
+    <a class="btn btn-sm btn-danger adminOnly mrg-top-5 mb-5" href="./admin.html">Go to Items (Admin Only)</a>
   </div>
 
   <div class="container mt-5">
     <a class="btn btn-sm btn-danger mrg-top-5 mb-5" href="/logout">Log Out</a>
-</div>
+  </div>
 
   <!-- Custom Script -->
   <script src="./js/add.js" type="text/javascript"></script>
