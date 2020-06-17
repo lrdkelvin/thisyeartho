@@ -42,7 +42,7 @@ module.exports = function(app, passport) {
   //at some point there will be a button that can be clicked to run this
   app.get("/logout", function(req, res) {
     req.session.destroy(function(err) {
-      res.redirect("/signin");
+      res.redirect("/");
     });
   });
 
@@ -83,7 +83,7 @@ module.exports = function(app, passport) {
   });
 
   //once logged in as normal user -- add.html
-  app.get("/add", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/add.html"));
+  app.get("/dashboard", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
   });
 };
