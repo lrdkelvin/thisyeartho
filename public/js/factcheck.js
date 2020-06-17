@@ -37,7 +37,6 @@ const app = {
           searchTerm: searchTerm
         } ,
         success: function(response) {
-          console.log(response);
           callback(response);
         }
         })
@@ -48,7 +47,6 @@ $("#search-button").on("click", function() {
   console.log("button clicked");
 
 app.searchNews($("#news-search").val(), function(results) {
-  console.log(results);
     var res = results.articles;
     var userInput = $("#news-search").val();
 
