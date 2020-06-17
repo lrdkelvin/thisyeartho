@@ -78,4 +78,21 @@ module.exports = function(app) {
       res.json(factCheck);
     });
   });
+
+  app.get("/api/searchNews", function(req, res) {
+    console.log('request is: ' + req.body);
+    console.log('searchNews');
+    const baseURL = "https://newsapi.org/v2/everything?";
+    const searchTerm = 'bitcoin';
+    const querystring = "q=" + searchTerm + "&apiKey=8d6bfe70b53d4b40aa6a8d5385f0f0de"
+    const totalURL = baseURL + querystring;
+    axios({
+      method: "get",
+      url: totalURL
+    })
+      .then(function (response) {
+        console.log(response.data);
+        res.json(response.data);
+      }).catch(error => console.log(error))
+  });
 };

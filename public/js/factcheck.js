@@ -22,15 +22,7 @@ const app = {
    * @param callback
    * @return {json}
    */
-  search(url, callback) {
-    $.ajax({
-      url: url,
-      method: "GET",
-      success: function (result) {
-        callback(result);
-      }
-    });
-  },
+  
   /**
   * @param {string} searchTerm - article search term provided by user
   * @param {number} platform - The platform that we want to search under that we get from platform dropdown.
@@ -41,16 +33,23 @@ const app = {
   */
 
   searchNews(searchTerm, callback) {
-      const baseUrl = "https://newsapi.org/v2/everything?";
+      //const baseUrl = "https://newsapi.org/v2/everything?";
       //will change api key when I incorporate the .env file
-      const querystring = "q=" + searchTerm + "&apiKey=8d6bfe70b53d4b40aa6a8d5385f0f0de";
+     // const querystring = "q=" + searchTerm + "&apiKey=8d6bfe70b53d4b40aa6a8d5385f0f0de";
 
-      app.search(baseUrl + querystring, function(response) {
-        callback(response);
-      });
-
-
-  }
+      //app.search(baseUrl + querystring, function(response) {
+        //callback(response);new
+      //});
+      $.ajax({
+        url: "api/searchNews",
+        method: "GET",
+        data: {
+          searchTerm: JSON.stringify(searchTerm)
+        } 
+        }).then(function (response) {
+          console.log(response)
+        })
+    }
 
 }
 $("#search-button").on("click", function() {

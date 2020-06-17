@@ -10,6 +10,11 @@ module.exports = function(app, passport) {
     res.sendFile("signin.html", { root: "public" });
   });
 
+    //this sends the user to the signup page as a default but this can be changed later
+  app.get("/signup", function(req, res) {
+      res.sendFile("signup.html", { root: "public" });
+  });
+
 
 
   //this sends the signin page
