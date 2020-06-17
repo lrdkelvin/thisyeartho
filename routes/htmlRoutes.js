@@ -7,23 +7,23 @@ var path = require("path");
 module.exports = function(app, passport) {
   //this sends the user to the signup page as a default but this can be changed later
   app.get("/", function(req, res) {
-    res.sendFile("index.html", { root: "public" });
+    res.sendFile("signin.html", { root: "public" });
   });
 
 
 
   //this sends the signin page
-  app.get("/index", function(req, res) {
-    res.sendFile("index.html", { root: "public" });
+  app.get("/signin", function(req, res) {
+    res.sendFile("signin.html", { root: "public" });
   });
 
   //this determines whether or not a user can signup with their email address or if it's already taken
   app.post(
-    "/index",
+    "/signup",
     passport.authenticate("local-signup", {
       successRedirect: "/dashboard",
 
-      failureRedirect: "/index",
+      failureRedirect: "/signup",
     })
   );
 
@@ -37,7 +37,7 @@ module.exports = function(app, passport) {
   //at some point there will be a button that can be clicked to run this
   app.get("/logout", function(req, res) {
     req.session.destroy(function(err) {
-      res.redirect("/index");
+      res.redirect("/");
     });
   });
 
@@ -47,7 +47,7 @@ module.exports = function(app, passport) {
     
     return next();
 
-    res.redirect("/index");
+    res.redirect("/signin");
   }
 
   function isAdmin(req, res, next) {
@@ -63,11 +63,11 @@ module.exports = function(app, passport) {
 
   //this checks that the signin was done correctly
   app.post(
-    "/index",
+    "/signin",
     passport.authenticate("local-signin", {
       successRedirect: "/dashboard",
 
-      failureRedirect: "/index",
+      failureRedirect: "/signin",
     })
   );
 
