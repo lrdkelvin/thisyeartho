@@ -5,10 +5,6 @@
 
 $(".card").hide();
 
-$(document).ajaxError(function(){
-  alert("An error occurred!");
-});
-
 function runSearch() {
 
 }
@@ -34,13 +30,6 @@ const app = {
   */
 
   searchNews(searchTerm, callback) {
-      //const baseUrl = "https://newsapi.org/v2/everything?";
-      //will change api key when I incorporate the .env file
-     // const querystring = "q=" + searchTerm + "&apiKey=8d6bfe70b53d4b40aa6a8d5385f0f0de";
-
-      //app.search(baseUrl + querystring, function(response) {
-        //callback(response);new
-      //});
       $.ajax({
         url: "api/searchNews",
         method: "GET",
@@ -48,7 +37,6 @@ const app = {
           searchTerm: searchTerm
         } ,
         success: function(response) {
-          console.log(response);
           callback(response);
         }
         })
@@ -59,9 +47,8 @@ $("#search-button").on("click", function() {
   console.log("button clicked");
 
 app.searchNews($("#news-search").val(), function(results) {
-  console.log(results);
     var res = results.articles;
-    var userInput = $("#user-input").val();
+    var userInput = $("#news-search").val();
 
     $(".card").show();
     $("#user-input").html(userInput);

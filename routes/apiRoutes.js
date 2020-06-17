@@ -1,8 +1,11 @@
 //This is our api routes file. It will send requests to our database and return the info.
 //This is basically the sequelize ORM making it so we don't have to write sql statements.
 //This is still the basic example file, so none of this code currently does anything.
+require("dotenv").config();
 var axios = require('axios');
 var db = require("../models");
+var keys = require("../keys.js");
+var news = keys.NewsSearch.key;
 
 module.exports = function(app) {
 
@@ -84,7 +87,7 @@ module.exports = function(app) {
     console.log('searchNews');
     const baseURL = "https://newsapi.org/v2/everything?";
     const searchTerm = req.query.searchTerm
-    const querystring = "q=" + searchTerm + "&sortBy=relevancy&apiKey=8d6bfe70b53d4b40aa6a8d5385f0f0de"
+    const querystring = "q=" + searchTerm + "&sortBy=relevancy&apiKey=" + news;
     const totalURL = baseURL + querystring;
     axios({
       method: "get",
@@ -92,8 +95,6 @@ module.exports = function(app) {
     })
       .then(function (response) {
         res.json(response.data);
-        console.log(response.data)
-        console.log("the whole search is: " + totalURL)
       }).catch(error => console.log(error))
   });
 };
