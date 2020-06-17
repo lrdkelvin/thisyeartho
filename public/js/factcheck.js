@@ -2,6 +2,7 @@
 //and probably calls to outside APIs 
 //I renamed the file factcheck because there was already an index.js in the models folder
 
+
 $(".card").hide();
 
 $(document).ajaxError(function(){
@@ -44,10 +45,12 @@ const app = {
         url: "api/searchNews",
         method: "GET",
         data: {
-          searchTerm: JSON.stringify(searchTerm)
-        } 
-        }).then(function (response) {
-          console.log(response)
+          searchTerm: searchTerm
+        } ,
+        success: function(response) {
+          console.log(response);
+          callback(response);
+        }
         })
     }
 
@@ -56,7 +59,7 @@ $("#search-button").on("click", function() {
   console.log("button clicked");
 
 app.searchNews($("#news-search").val(), function(results) {
-
+  console.log(results);
     var res = results.articles;
     var userInput = $("#user-input").val();
 
