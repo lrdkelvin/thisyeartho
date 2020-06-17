@@ -10,7 +10,7 @@ We should be able to make certain parts of this page appear depending on the use
 <html>
 
 <head>
-  <title>Passport with Sequelize</title>
+  <title>Dashboard</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -74,9 +74,7 @@ We should be able to make certain parts of this page appear depending on the use
     </div>
   </div>
 
-  <div class="container offset-md-3 mb-5">
-    <div class="row">
-      <div class="col-md-12 text-left mt-5">
+  <div class="container mrg-top-5">
         <form id="addNew">
           <div class="form-group">
             <label for="urlToBe">URL:</label>
@@ -95,16 +93,10 @@ We should be able to make certain parts of this page appear depending on the use
           <br>
           <button type="submit" class="btn btn-dark submit btn-lg">Submit</button>
         </form>
-      </div>
-    </div>
   </div>
 
-  <div class="container pb-5 mb-5">
-    <div class="row">
-      <div class="col-md-12 mt-4">
-        <a class="btn btn-sm btn-danger adminOnly" href="/admin">Go to Items (Admin Only)</a>
-      </div>
-    </div>
+  <div class="container pb-5 mb-5 mt-5">
+        <a class="btn btn-sm btn-danger adminOnly mrg-top-5" href="/admin">Go to Items (Admin Only)</a>
   </div>
 
   <!-- Custom Script -->
