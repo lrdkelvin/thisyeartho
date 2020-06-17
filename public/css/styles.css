@@ -66,3 +66,18 @@ button.edit {
 #search-button {
   float: right;
 }
+
+.doubleRow {
+  display: flex;
+  margin-left: 15%;
+  padding: 0;
+}
+
+.weirdRow {
+  flex-direction: row;
+  flex-basis: 100%;
+}
+
+.mrg-top-5 {
+  margin-top: 100px;
+}
