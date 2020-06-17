@@ -16,6 +16,10 @@ button.edit {
   margin: 5px;
 }
 
+.card {
+  margin-left: 400px;
+}
+
 .top-30 {
   margin-top: 30px;
 }
@@ -80,4 +84,12 @@ button.edit {
 
 .mrg-top-5 {
   margin-top: 100px;
+}
+
+.btn-info {
+  margin-right: 20px;
+}
+
+form {
+  overflow: hidden;
 }
