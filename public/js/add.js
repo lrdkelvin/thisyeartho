@@ -13,7 +13,7 @@ $(document).ready(function() {
   }
 
   // Getting jQuery references to the post body, title, form, and category select
-  var bodyInput = $("#rating");
+  var ratingInput = $("#rating");
   var urlInput = $("#urlToBe");
   var addForm = $("#addNew");
   var categorySelect = $("#category");
@@ -23,7 +23,7 @@ $(document).ready(function() {
   $(addForm).on("submit", function handleFormSubmit(event) {
     event.preventDefault();
     // Wont submit the post if we are missing a body or a title
-    if (!urlInput.val().trim() || !bodyInput.val().trim()) {
+    if (!urlInput.val().trim() || !ratingInput.val().trim()) {
       return;
     }
     // Constructing a newPost object to hand to the database
@@ -49,7 +49,7 @@ $(document).ready(function() {
   // Submits a new post and brings user to blog page upon completion
   function submitItem(item) {
     $.post("/api/articles/", item, function() {
-      window.location.href = "/admin";
+      window.location.href = "/admin.html";
     });
   }
 
