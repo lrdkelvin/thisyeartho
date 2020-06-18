@@ -10,7 +10,9 @@ module.exports = function(app, passport) {
     res.sendFile("signin.html", { root: "public" });
   });
 
-
+  app.get("/signup", function(req, res) {
+    res.sendFile("signup.html", { root: "public" });
+  });
 
   //this sends the signin page
   app.get("/signin", function(req, res) {
@@ -79,6 +81,6 @@ module.exports = function(app, passport) {
 
   //once logged in as normal user -- add.html
   app.get("/dashboard", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/add.html"));
+    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
   });
 };
