@@ -8,8 +8,6 @@ var keys = require("../keys.js");
 var news = keys.NewsSearch.key;
 
 module.exports = function(app) {
-
-
   ///////////// ARTICLE PARSER  ////////////
 
   //finds all articles parsed
@@ -35,6 +33,19 @@ module.exports = function(app) {
       });
   });
 
+  // Get route for retrieving a single post
+  app.get("/api/articles/:id", function(req, res) {
+    // Add sequelize code to find a single post where the id is equal to req.params.id,
+    // return the result to the user with res.json
+    db.articleVal.findOne({
+      where: {
+        id: req.params.id,
+      },
+    }).then(function(factCheck) {
+      res.json(factCheck);
+    });
+  });
+
   // POST route for saving a new post
   app.post("/api/articles", function(req, res) {
     // Add sequelize code for creating a post using req.body,
@@ -42,7 +53,8 @@ module.exports = function(app) {
     db.articleVal
       .create({
         url: req.body.url,
-        category: req.body.category
+        rating: req.body.rating,
+        category: req.body.category,
       })
       .then(function(factCheck) {
         res.json(factCheck);
@@ -53,33 +65,37 @@ module.exports = function(app) {
   app.delete("/api/articles/:id", function(req, res) {
     // Add sequelize code to delete a post where the id is equal to req.params.id,
     // then return the result to the user using res.json
-    db.articleVal.destroy({
-      where: {
-        id: req.params.id,
-      },
-    }).then(function(factCheck) {
-      res.json(factCheck);
-    });
+    db.articleVal
+      .destroy({
+        where: {
+          id: req.params.id,
+        },
+      })
+      .then(function(factCheck) {
+        res.json(factCheck);
+      });
   });
 
   // PUT route for updating posts
   app.put("/api/articles", function(req, res) {
     // Add code here to update a post using the values in req.body, where the id is equal to
     // req.body.id and return the result to the user using res.json
-    db.articleVal.update(
-      {
-        url: req.body.url,
-        rating: req.body.rating,
-        category: req.body.category,
-      },
-      {
-        where: {
-          id: req.body.id,
+    db.articleVal
+      .update(
+        {
+          url: req.body.url,
+          rating: req.body.rating,
+          category: req.body.category,
         },
-      }
-    ).then(function(factCheck) {
-      res.json(factCheck);
-    });
+        {
+          where: {
+            id: req.body.id,
+          },
+        }
+      )
+      .then(function(factCheck) {
+        res.json(factCheck);
+      });
   });
 
   app.get("/api/searchNews", function(req, res) {
