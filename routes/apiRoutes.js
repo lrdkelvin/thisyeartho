@@ -25,12 +25,26 @@ module.exports = function(app) {
     db.articleVal
       .findAll({
         where: {
-          category: req.params.category,
-        },
+          category: req.params.category
+        }
       })
       .then(function(factCheck) {
         res.json(factCheck);
       });
+  });
+
+
+
+  app.get("/api/articles/rating/:rating", function(req, res) {
+    db.articleVal
+    .findAll({
+      where: {
+        rating: req.params.rating
+      },
+    })
+    .then(function(factCheck) {
+      res.json(factCheck);
+    });
   });
 
   // Get route for retrieving a single post
@@ -52,6 +66,7 @@ module.exports = function(app) {
     // then return the result using res.json
     db.articleVal
       .create({
+        title: req.body.title,
         url: req.body.url,
         rating: req.body.rating,
         category: req.body.category,

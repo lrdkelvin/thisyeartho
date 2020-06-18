@@ -1,5 +1,11 @@
+//creating the table for items to be validated
+
 module.exports = function(sequelize, DataTypes) {
   var articleVal = sequelize.define("articleVal", {
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     url: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -12,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     rating: {
       type: DataTypes.STRING,
-      allowNull: false
+      defaultValue: "N/A"
     }
   });
   return articleVal;

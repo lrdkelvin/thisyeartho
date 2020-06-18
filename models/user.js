@@ -44,7 +44,7 @@ module.exports = function(sequelize, Sequelize) {
             defaultValue: 'active'
         },
 
-        admin: {
+        userAdmin: {
             type: Sequelize.BOOLEAN,
             defaultValue: true
         }

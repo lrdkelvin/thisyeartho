@@ -27,6 +27,7 @@ $(document).ready(function() {
     });
   }
 
+
   // This function does an API call to delete posts
   function deleteItem(id) {
     $.ajax({
@@ -64,7 +65,6 @@ $(document).ready(function() {
     editBtn.text("EDIT");
     editBtn.addClass("edit btn btn-default");
     var newItemTitle = $("<h2>");
-    var newItemDate = $("<small>");
     var newItemCategory = $("<h5>");
     newItemCategory.text(item.category);
     newItemCategory.css({
@@ -76,12 +76,9 @@ $(document).ready(function() {
     var newItemCardBody = $("<div>");
     newItemCardBody.addClass("card-body");
     var newItemBody = $("<p>");
-    newItemTitle.text(item.url + " ");
-    newItemBody.text(item.rating);
-    var formattedDate = new Date(item.createdAt);
-    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    newItemDate.text(formattedDate);
-    newItemTitle.append(newItemDate);
+    newItemTitle.text(item.title + " ");
+    newItemBody.text(item.url + " ");
+    newItemBody.append("<br />" + item.rating);
     newItemCardHeading.append(deleteBtn);
     newItemCardHeading.append(editBtn);
     newItemCardHeading.append(newItemTitle);
