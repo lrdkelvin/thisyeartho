@@ -80,11 +80,7 @@ module.exports = function(app, passport) {
   });
 
   //once logged in as normal user -- add.html
-<<<<<<< HEAD
   app.get("/dashboard", function(req, res) {
-=======
-  app.get("/add", function(req, res) {
->>>>>>> a2b27825e6137212a4b27fbb5c556cd3273fde6c
     res.sendFile(path.join(__dirname, "../public/add.html"));
   });
 };
