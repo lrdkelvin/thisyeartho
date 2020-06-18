@@ -81,6 +81,6 @@ module.exports = function(app, passport) {
 
   //once logged in as normal user -- add.html
   app.get("/dashboard", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/add.html"));
+    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
   });
 };
