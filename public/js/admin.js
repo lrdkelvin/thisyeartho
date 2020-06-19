@@ -7,17 +7,22 @@ $(document).ready(function() {
   $(document).on("click", "button.delete", handleItemDelete);
   $(document).on("click", "button.edit", handleItemEdit);
   categorySelect.on("change", handleCategoryChange);
-  var items;
+  var items = [];
 
   // This function grabs posts from the database and updates the view
   function getItems(category) {
+    console.log("here is the list of categories: " + category);
     var categoryString = category || "";
     if (categoryString) {
       categoryString = "/category/" + categoryString;
     }
     $.get("/api/articles" + categoryString, function(data) {
       console.log("Items", data);
-      items = data;
+      for (var i=0; i<data.length; i++) {
+        if (data[i].rating === "N/A") {
+          items.push(data[i]);
+        }
+      }
       if (!items || !items.length) {
         displayEmpty();
       } else {
