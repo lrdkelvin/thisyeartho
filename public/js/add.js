@@ -15,7 +15,7 @@ $(document).ready(function() {
   // Getting jQuery references to the post body, title, form, and category select
 
 
-  var ratingInput = $("#title");
+  var titleInput = $("#title");
   var urlInput = $("#urlToBe");
   var addForm = $("#addNew");
   var categorySelect = $("#category");
@@ -25,12 +25,12 @@ $(document).ready(function() {
   $(addForm).on("submit", function handleFormSubmit(event) {
     event.preventDefault();
     // Wont submit the post if we are missing a body or a title
-    if (!urlInput.val().trim() || !ratingInput.val().trim()) {
+    if (!urlInput.val().trim() || !titleInput.val().trim()) {
       return;
     }
     // Constructing a newPost object to hand to the database
     var newItem = {
-      title: ratingInput.val().trim(),
+      title: titleInput.val().trim(),
       url: urlInput.val().trim(),
       category: categorySelect.val()
     };
@@ -60,8 +60,8 @@ $(document).ready(function() {
     $.get("/api/articles/" + id, function(data) {
       if (data) {
         // If this post exists, prefill our cms forms with its data
-        urlInput.val(data.title);
-        ratingInput.val(data.rating);
+        urlInput.val(data.url);
+        titleInput.val(data.title);
         categorySelect.val(data.category);
         // If we have a post with this id, set a flag for us to know to update the post
         // when we hit submit
