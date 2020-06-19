@@ -9,6 +9,7 @@ var session = require('express-session');
 //BodyParser for the login system
 var bodyParser = require('body-parser');
 var axios = require('axios');
+var env = process.env.NODE_ENV || "development";
 
 //requiring the models for our db
 var db = require("./models");
