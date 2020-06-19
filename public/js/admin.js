@@ -83,9 +83,9 @@ $(document).ready(function() {
     var rateSelect = $(
       "<div class='form-group'><label for='gradeSelect'>Select Grade:</label><select class='custom-select' id='gradeSelect'><option value='a'>A</option><option value='b'>B</option><option value='c'>C</option><option value='d'>D</option><option value='f'>F</option></select></div><br>"
     );
-    var submitGrade = $("<button type='submit' class='btn btn-dark submit btn-lg'>Submit</button>");
+    var submitGrade = $("<button type='submit' class='btn btn-dark gradeSelect btn-lg'>Submit</button>");
 
-    newItemBody.append("<br />" + item.rating);
+    //newItemBody.append("<br />" + item.rating);
     newItemCardHeading.append(deleteBtn);
     //newItemCardHeading.append(editBtn);
     newItemCardHeading.append(newItemTitle);
