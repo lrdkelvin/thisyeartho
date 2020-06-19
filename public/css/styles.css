@@ -16,7 +16,7 @@ button.edit {
   margin: 5px;
 }
 
-.card {
+.resultsCard {
   margin-left: 400px;
 }
 
@@ -67,6 +67,10 @@ button.edit {
   float: right;
 }
 
+.logOut {
+  float: left;
+}
+
 #search-button {
   float: right;
 }
@@ -92,4 +96,16 @@ button.edit {
 
 form {
   overflow: hidden;
+}
+
+/* These are making sure the log in and sign in forms are aligned. */
+.labelStyle{
+  display: inline-block;
+  clear: left;
+  width: 100px;
+  text-align: right;
+}
+
+.inputStyle {
+display: inline-block;
 }
