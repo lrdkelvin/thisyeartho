@@ -13,12 +13,8 @@ $(document).ready(function() {
   }
 
   // Getting jQuery references to the post body, title, form, and category select
-<<<<<<< HEAD
-  var ratingInput = $("#title");
-=======
 
   var titleInput = $("#title");
->>>>>>> 00201fc0e220cb833eac8fa3b3e56ffda94e943e
   var urlInput = $("#urlToBe");
   var addForm = $("#addNew");
   var categorySelect = $("#category");
@@ -28,20 +24,12 @@ $(document).ready(function() {
   $(addForm).on("submit", function handleFormSubmit(event) {
     event.preventDefault();
     // Wont submit the post if we are missing a body or a title
-<<<<<<< HEAD
-    if (!urlInput.val().trim() || !ratingInput.val().trim()) {
-=======
     if (!urlInput.val().trim() || !titleInput.val().trim()) {
->>>>>>> 00201fc0e220cb833eac8fa3b3e56ffda94e943e
       return;
     }
     // Constructing a newPost object to hand to the database
     var newItem = {
-<<<<<<< HEAD
-      title: ratingInput.val().trim(),
-=======
       title: titleInput.val().trim(),
->>>>>>> 00201fc0e220cb833eac8fa3b3e56ffda94e943e
       url: urlInput.val().trim(),
       category: categorySelect.val(),
     };
@@ -175,7 +163,7 @@ $(document).ready(function() {
   var articleUrl = "";
   var articleTitle = "";
   var articleCategory = "Article";
-  var items = [];
+  var allItems = [];
   var missing = true;
   //get posts on articles
   function getArticles(category) {
@@ -187,7 +175,7 @@ $(document).ready(function() {
     $.get("/api/articles" + categoryString, function(data) {
       console.log("Items", data);
       for (var i = 0; i < data.length; i++) {
-        items.push(data[i]);
+        allItems.push(data[i]);
       }
     });
   }
@@ -198,37 +186,42 @@ $(document).ready(function() {
     console.log("the url should be: " + articleUrl);
     articleTitle = $("#article-title").html();
     console.log("Aricle title is " + articleTitle);
-    setTimeout(function(){addArticles()}, 100);
-   
+    setTimeout(function() {
+      addArticles();
+    }, 100);
   });
   $("#article-btn2").on("click", function() {
     articleUrl = $("#article-url2").html();
     articleTitle = $("#article-title2").html();
     console.log("the url should be: " + articleUrl);
-    setTimeout(function(){addArticles()}, 100);
+    setTimeout(function() {
+      addArticles();
+    }, 100);
   });
   $("#article-btn3").on("click", function() {
     articleUrl = $("#article-url3").html();
     articleTitle = $("#article-title3").html();
     console.log("the url should be: " + articleUrl);
-    setTimeout(function(){addArticles()}, 100);
+    setTimeout(function() {
+      addArticles();
+    }, 100);
   });
   function addArticles() {
     console.log("article url is now: " + articleUrl);
-    for (var i = 0; i < items.length; i++) {
-      if (items[i].url !== articleUrl) {
+    for (var i = 0; i < allItems.length; i++) {
+      if (allItems[i].url !== articleUrl) {
         console.log("It's not here!");
       } else {
         missing = false;
         console.log("it's here");
-        if (items[i].rating === "N/A") {
+        if (allItems[i].rating === "N/A") {
           alert(
-            "This has been requested and has not yet recieved a grade.  We will work as fast as we can to get it done!"
+            "we are working to get this graded, but rest assured, it has been requested!"
           );
         } else {
           alert(
             "This has been requested and received a grade of " +
-              items[i].rating +
+              allItems[i].rating +
               " for factual accuracy"
           );
         }
@@ -241,14 +234,13 @@ $(document).ready(function() {
         var newItem = {
           title: articleTitle.trim(),
           url: articleUrl.trim(),
-          category: articleCategory
+          category: articleCategory,
         };
         console.log(newItem);
         submitItem(newItem);
-
       } else {
         console.log("this is already in database and shouldn't be added");
-        console.log("missing is: " + missing)
+        console.log("missing is: " + missing);
         missing = true;
       }
     }, 200);
