@@ -9,7 +9,6 @@ var session = require('express-session');
 //BodyParser for the login system
 var bodyParser = require('body-parser');
 var axios = require('axios');
-var popupS = require("popups");
 
 //requiring the models for our db
 var db = require("./models");

@@ -49,7 +49,7 @@ $(document).ready(function() {
   // Submits a new post and brings user to blog page upon completion
   function submitItem(item) {
     $.post("/api/articles/", item, function() {
-      window.location.href = "/admin.html";
+      $("#thankModal").modal("show");
     });
   }
 
@@ -215,15 +215,10 @@ $(document).ready(function() {
         missing = false;
         console.log("it's here");
         if (allItems[i].rating === "N/A") {
-          alert(
-            "we are working to get this graded, but rest assured, it has been requested!"
-          );
+          $("#exampleModalCenter").modal('show');
         } else {
-          alert(
-            "This has been requested and received a grade of " +
-              allItems[i].rating +
-              " for factual accuracy"
-          );
+          $("#articleGrade").html(allItems[i].rating);
+          $("#gradedModal").modal('show');
         }
       }
     }
@@ -231,6 +226,11 @@ $(document).ready(function() {
     setTimeout(function() {
       if (missing === true) {
         console.log("guess we need to add this to database");
+        $("#confirmModal").modal('show');
+        $("#confirmButton").on('click', function() {
+          $("#confirmModal").modal('hide');
+          console.log("adding confirmed");
+        
         var newItem = {
           title: articleTitle.trim(),
           url: articleUrl.trim(),
@@ -238,6 +238,7 @@ $(document).ready(function() {
         };
         console.log(newItem);
         submitItem(newItem);
+      })
       } else {
         console.log("this is already in database and shouldn't be added");
         console.log("missing is: " + missing);
