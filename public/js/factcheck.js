@@ -74,6 +74,7 @@ app.searchNews($("#news-search").val(), function(results) {
 
 })
 })
+
 // and probably calls to outside APIs
 // I renamed the file factcheck because there was already an index.js in the models folder
 /* $(function() {

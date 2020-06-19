@@ -14,7 +14,6 @@ $(document).ready(function() {
 
   // Getting jQuery references to the post body, title, form, and category select
 
-
   var titleInput = $("#title");
   var urlInput = $("#urlToBe");
   var addForm = $("#addNew");
@@ -32,7 +31,7 @@ $(document).ready(function() {
     var newItem = {
       title: titleInput.val().trim(),
       url: urlInput.val().trim(),
-      category: categorySelect.val()
+      category: categorySelect.val(),
     };
 
     console.log(newItem);
@@ -42,8 +41,7 @@ $(document).ready(function() {
     if (updating) {
       newItem.id = itemId;
       updateItem(newItem);
-    }
-    else {
+    } else {
       submitItem(newItem);
     }
   });
@@ -75,11 +73,10 @@ $(document).ready(function() {
     $.ajax({
       method: "PUT",
       url: "/api/articles",
-      data: item
-    })
-      .then(function() {
-        window.location.href = "/admin";
-      });
+      data: item,
+    }).then(function() {
+      window.location.href = "/admin";
+    });
   }
 
   // added in the following code to display the graded items
@@ -99,13 +96,11 @@ $(document).ready(function() {
       items = data;
       if (!items || !items.length) {
         displayEmpty();
-      }
-      else {
+      } else {
         initializeRows();
       }
     });
   }
-
 
   function initializeRows(req, res) {
     itemContainer.empty();
@@ -133,8 +128,7 @@ $(document).ready(function() {
     newItemCategory.css({
       float: "right",
       "font-weight": "700",
-      "margin-top":
-      "-15px"
+      "margin-top": "-15px",
     });
     var newItemCardBody = $("<div>");
     newItemCardBody.addClass("card-body");
@@ -156,12 +150,95 @@ $(document).ready(function() {
     itemContainer.empty();
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No items yet for this category, navigate <a href='/dashboard'>here</a> in order to submit an item for validation.");
+    messageH2.html(
+      "No items yet for this category, navigate <a href='/dashboard'>here</a> in order to submit an item for validation."
+    );
     itemContainer.append(messageH2);
   }
 
   function handleCategoryChange() {
     var newItemCategory = $(this).val();
     getItems(newItemCategory);
+  }
+  var articleUrl = "";
+  var articleTitle = "";
+  var articleCategory = "Article";
+  var items = [];
+  var missing = true;
+  //get posts on articles
+  function getArticles(category) {
+    console.log("here is the list of categories: " + category);
+    var categoryString = category || "";
+    if (categoryString) {
+      categoryString = "/category/" + categoryString;
+    }
+    $.get("/api/articles" + categoryString, function(data) {
+      console.log("Items", data);
+      for (var i = 0; i < data.length; i++) {
+        items.push(data[i]);
+      }
+    });
+  }
+  getArticles();
+
+  $("#article-btn").on("click", function() {
+    articleUrl = $("#article-url").html();
+    console.log("the url should be: " + articleUrl);
+    articleTitle = $("#article-title").html();
+    console.log("Aricle title is " + articleTitle);
+    setTimeout(function(){addArticles()}, 100);
+   
+  });
+  $("#article-btn2").on("click", function() {
+    articleUrl = $("#article-url2").html();
+    articleTitle = $("#article-title2").html();
+    console.log("the url should be: " + articleUrl);
+    setTimeout(function(){addArticles()}, 100);
+  });
+  $("#article-btn3").on("click", function() {
+    articleUrl = $("#article-url3").html();
+    articleTitle = $("#article-title3").html();
+    console.log("the url should be: " + articleUrl);
+    setTimeout(function(){addArticles()}, 100);
+  });
+  function addArticles() {
+    console.log("article url is now: " + articleUrl);
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].url !== articleUrl) {
+        console.log("It's not here!");
+      } else {
+        missing = false;
+        console.log("it's here");
+        if (items[i].rating === "N/A") {
+          alert(
+            "This has been requested and has not yet recieved a grade.  We will work as fast as we can to get it done!"
+          );
+        } else {
+          alert(
+            "This has been requested and received a grade of " +
+              items[i].rating +
+              " for factual accuracy"
+          );
+        }
+      }
+    }
+
+    setTimeout(function() {
+      if (missing === true) {
+        console.log("guess we need to add this to database");
+        var newItem = {
+          title: articleTitle.trim(),
+          url: articleUrl.trim(),
+          category: articleCategory
+        };
+        console.log(newItem);
+        submitItem(newItem);
+
+      } else {
+        console.log("this is already in database and shouldn't be added");
+        console.log("missing is: " + missing)
+        missing = true;
+      }
+    }, 200);
   }
 });
