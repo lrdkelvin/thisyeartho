@@ -9,7 +9,7 @@ function runSearch() {
 
 }
 
-const app = {
+const application = {
 
     results: [],
 
@@ -46,7 +46,7 @@ const app = {
 $("#search-button").on("click", function() {
   console.log("button clicked");
 
-app.searchNews($("#news-search").val(), function(results) {
+application.searchNews($("#news-search").val(), function(results) {
     var res = results.articles;
     var userInput = $("#news-search").val();
 
@@ -74,6 +74,7 @@ app.searchNews($("#news-search").val(), function(results) {
 
 })
 })
+
 // and probably calls to outside APIs
 // I renamed the file factcheck because there was already an index.js in the models folder
 /* $(function() {
