@@ -13,8 +13,12 @@ $(document).ready(function() {
   }
 
   // Getting jQuery references to the post body, title, form, and category select
+<<<<<<< HEAD
+  var ratingInput = $("#title");
+=======
 
   var titleInput = $("#title");
+>>>>>>> 00201fc0e220cb833eac8fa3b3e56ffda94e943e
   var urlInput = $("#urlToBe");
   var addForm = $("#addNew");
   var categorySelect = $("#category");
@@ -24,12 +28,20 @@ $(document).ready(function() {
   $(addForm).on("submit", function handleFormSubmit(event) {
     event.preventDefault();
     // Wont submit the post if we are missing a body or a title
+<<<<<<< HEAD
+    if (!urlInput.val().trim() || !ratingInput.val().trim()) {
+=======
     if (!urlInput.val().trim() || !titleInput.val().trim()) {
+>>>>>>> 00201fc0e220cb833eac8fa3b3e56ffda94e943e
       return;
     }
     // Constructing a newPost object to hand to the database
     var newItem = {
+<<<<<<< HEAD
+      title: ratingInput.val().trim(),
+=======
       title: titleInput.val().trim(),
+>>>>>>> 00201fc0e220cb833eac8fa3b3e56ffda94e943e
       url: urlInput.val().trim(),
       category: categorySelect.val(),
     };
