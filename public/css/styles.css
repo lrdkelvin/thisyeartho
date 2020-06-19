@@ -16,10 +16,6 @@ button.edit {
   margin: 5px;
 }
 
-.resultsCard {
-  margin-left: 400px;
-}
-
 .top-30 {
   margin-top: 30px;
 }
@@ -98,6 +94,7 @@ form {
   overflow: hidden;
 }
 
+
 /* These are making sure the log in and sign in forms are aligned. */
 .labelStyle{
   display: inline-block;
@@ -108,4 +105,16 @@ form {
 
 .inputStyle {
 display: inline-block;
+}
+
+
+nav {
+  background-color: rgba(45, 117, 180, 0.603);
+  height: 70px;
+  border-bottom: 2px solid #cccccc;
+}
+
+.nav-item {
+  background-color: white;
+  margin: 5px;
 }
