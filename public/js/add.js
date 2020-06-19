@@ -228,6 +228,7 @@ $(document).ready(function() {
         console.log("guess we need to add this to database");
         $("#confirmModal").modal('show');
         $("#confirmButton").on('click', function() {
+          if (missing === true) {
           $("#confirmModal").modal('hide');
           console.log("adding confirmed");
         
@@ -238,6 +239,10 @@ $(document).ready(function() {
         };
         console.log(newItem);
         submitItem(newItem);
+        missing = false;
+      } else {
+        $("#confirmModal").modal('hide');
+      }
       })
       } else {
         console.log("this is already in database and shouldn't be added");
