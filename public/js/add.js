@@ -15,7 +15,7 @@ $(document).ready(function() {
   // Getting jQuery references to the post body, title, form, and category select
 
 
-  var ratingInput = $("#rating");
+  var ratingInput = $("#title");
   var urlInput = $("#urlToBe");
   var addForm = $("#addNew");
   var categorySelect = $("#category");
@@ -30,7 +30,7 @@ $(document).ready(function() {
     }
     // Constructing a newPost object to hand to the database
     var newItem = {
-      title: bodyInput.val().trim(),
+      title: ratingInput.val().trim(),
       url: urlInput.val().trim(),
       category: categorySelect.val()
     };
