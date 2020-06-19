@@ -25,23 +25,20 @@ $(document).ready(function() {
       }
       if (!items || !items.length) {
         displayEmpty();
-      }
-      else {
+      } else {
         initializeRows();
       }
     });
   }
 
-
   // This function does an API call to delete posts
   function deleteItem(id) {
     $.ajax({
       method: "DELETE",
-      url: "/api/articles/" + id
-    })
-      .then(function() {
-        getItems(categorySelect.val());
-      });
+      url: "/api/articles/" + id,
+    }).then(function() {
+      getItems(categorySelect.val());
+    });
   }
 
   // Getting the initial list of posts
@@ -75,20 +72,27 @@ $(document).ready(function() {
     newItemCategory.css({
       float: "right",
       "font-weight": "700",
-      "margin-top":
-      "-15px"
+      "margin-top": "-15px",
     });
     var newItemCardBody = $("<div>");
     newItemCardBody.addClass("card-body");
     var newItemBody = $("<p>");
     newItemTitle.text(item.title + " ");
     newItemBody.text(item.url + " ");
+
+    var rateSelect = $(
+      "<div class='form-group'><label for='gradeSelect'>Select Grade:</label><select class='custom-select' id='gradeSelect'><option value='a'>A</option><option value='b'>B</option><option value='c'>C</option><option value='d'>D</option><option value='f'>F</option></select></div><br>"
+    );
+    var submitGrade = $("<button type='submit' class='btn btn-dark submit btn-lg'>Submit</button>");
+
     newItemBody.append("<br />" + item.rating);
     newItemCardHeading.append(deleteBtn);
-    newItemCardHeading.append(editBtn);
+    //newItemCardHeading.append(editBtn);
     newItemCardHeading.append(newItemTitle);
     newItemCardHeading.append(newItemCategory);
     newItemCardBody.append(newItemBody);
+    newItemCardBody.append(rateSelect);
+    newItemCardBody.append(submitGrade);
     newItemCard.append(newItemCardHeading);
     newItemCard.append(newItemCardBody);
     newItemCard.data("item", item);
@@ -120,7 +124,9 @@ $(document).ready(function() {
     itemContainer.empty();
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No items yet for this category, navigate <a href='/dashboard'>here</a> in order to submit an item for validation.");
+    messageH2.html(
+      "No items yet for this category, navigate <a href='/dashboard'>here</a> in order to submit an item for validation."
+    );
     itemContainer.append(messageH2);
   }
 
@@ -129,5 +135,4 @@ $(document).ready(function() {
     var newItemCategory = $(this).val();
     getItems(newItemCategory);
   }
-
 });
