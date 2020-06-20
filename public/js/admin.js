@@ -99,7 +99,7 @@ $(document).ready(function() {
     var newItemBody = $("<p>");
     newItemTitle.text(item.title + " ");
     newItemBody.append("<br />");
-    newItemBody.append("<a href='target=_blank' '" + item.url + "'>" + item.url + "</a>");
+    newItemBody.append("<a target='_blank' href='" + item.url + "'>" + item.url + "</a>");
 
     var rateSelect = $(
       "<div class='form-group'><label for='gradeSelect'>Select Grade:</label><select class='custom-select' id='gradeSelect" + item.id + "'><option value='a'>A</option><option value='b'>B</option><option value='c'>C</option><option value='d'>D</option><option value='f'>F</option></select></div><br>"
