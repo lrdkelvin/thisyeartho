@@ -53,6 +53,10 @@ $(document).ready(function() {
     });
   }
 
+  function resetForm() {
+    document.getElementById("addNew").reset();
+  }
+
   // Gets post data for a post if we're editing
   function getItemData(id) {
     $.get("/api/articles/" + id, function(data) {
