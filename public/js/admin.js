@@ -3,9 +3,30 @@ $(document).ready(function() {
   // blogContainer holds all of our posts
   var itemContainer = $(".itemContainer");
   var categorySelect = $("#category");
+  
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handleItemDelete);
-  $(document).on("click", "button.edit", handleItemEdit);
+  $(document).on("click", "button.submit", function(event) {
+    var ratingInput = $("#gradeSelect").val();
+    console.log(ratingInput);
+    event.preventDefault();
+    var id = $(this).data("id");
+
+    var newGrade = {
+      rating: ratingInput
+    };
+
+    $.ajax("/api/articles/" + id, {
+      type: "PUT",
+      data: newGrade
+    }).then(
+      function() {
+        location.reload();
+      }
+    );
+  });
+
+
   categorySelect.on("change", handleCategoryChange);
   var items = [];
 
@@ -56,19 +77,13 @@ $(document).ready(function() {
 
   // This function constructs a post's HTML
   function createNewRow(item) {
+    var id = item.id;
     var newItemCard = $("<div>");
     newItemCard.addClass("card");
     var newItemCardHeading = $("<div>");
     newItemCardHeading.addClass("card-header");
-    var deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
-    var editBtn = $("<button>");
-    editBtn.text("EDIT");
-    editBtn.addClass("edit btn btn-default");
     var newItemTitle = $("<h2>");
     var newItemCategory = $("<h5>");
-    newItemCategory.text(item.category);
     newItemCategory.css({
       float: "right",
       "font-weight": "700",
@@ -78,18 +93,15 @@ $(document).ready(function() {
     newItemCardBody.addClass("card-body");
     var newItemBody = $("<p>");
     newItemTitle.text(item.title + " ");
-    newItemBody.text(item.url + " ");
+    newItemBody.append("<br />");
+    newItemBody.append("<a href='" + item.url + "'>" + item.url + "</a>");
 
     var rateSelect = $(
       "<div class='form-group'><label for='gradeSelect'>Select Grade:</label><select class='custom-select' id='gradeSelect'><option value='a'>A</option><option value='b'>B</option><option value='c'>C</option><option value='d'>D</option><option value='f'>F</option></select></div><br>"
     );
-    var submitGrade = $("<button type='submit' class='btn btn-dark submit btn-lg'>Submit</button>");
-
-    newItemBody.append("<br />" + item.rating);
-    newItemCardHeading.append(deleteBtn);
-    //newItemCardHeading.append(editBtn);
+    var submitGrade = $("<button type='submit' class='btn btn-dark submit btn-lg' data-id='" + item.id + "'>");
+    submitGrade.append("Submit</button>");
     newItemCardHeading.append(newItemTitle);
-    newItemCardHeading.append(newItemCategory);
     newItemCardBody.append(newItemBody);
     newItemCardBody.append(rateSelect);
     newItemCardBody.append(submitGrade);
@@ -119,6 +131,8 @@ $(document).ready(function() {
     window.location.href = "/dashboard?url_id=" + currentItem.id;
   }
 
+
+
   // This function displays a message when there are no posts
   function displayEmpty() {
     itemContainer.empty();
@@ -136,3 +150,4 @@ $(document).ready(function() {
     getItems(newItemCategory);
   }
 });
+

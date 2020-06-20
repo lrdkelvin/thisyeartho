@@ -47,18 +47,6 @@ module.exports = function(app) {
     });
   });
 
-  // Get route for retrieving a single post
-  app.get("/api/articles/:id", function(req, res) {
-    // Add sequelize code to find a single post where the id is equal to req.params.id,
-    // return the result to the user with res.json
-    db.articleVal.findOne({
-      where: {
-        id: req.params.id,
-      },
-    }).then(function(factCheck) {
-      res.json(factCheck);
-    });
-  });
 
   // POST route for saving a new post
   app.post("/api/articles", function(req, res) {
@@ -76,35 +64,19 @@ module.exports = function(app) {
       });
   });
 
-  // DELETE route for deleting posts
-  app.delete("/api/articles/:id", function(req, res) {
-    // Add sequelize code to delete a post where the id is equal to req.params.id,
-    // then return the result to the user using res.json
-    db.articleVal
-      .destroy({
-        where: {
-          id: req.params.id,
-        },
-      })
-      .then(function(factCheck) {
-        res.json(factCheck);
-      });
-  });
 
   // PUT route for updating posts
-  app.put("/api/articles", function(req, res) {
+  app.put("/api/articles/:id", function(req, res) {
     // Add code here to update a post using the values in req.body, where the id is equal to
     // req.body.id and return the result to the user using res.json
     db.articleVal
       .update(
         {
-          url: req.body.url,
           rating: req.body.rating,
-          category: req.body.category,
         },
         {
           where: {
-            id: req.body.id,
+            id: req.params.id,
           },
         }
       )
