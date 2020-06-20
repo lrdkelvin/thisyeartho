@@ -4,12 +4,12 @@
 <html>
 
 <head>
-  <title>Dashboard</title>
+  <title>Submit</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  
+
   <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
@@ -18,72 +18,84 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light">
     <span class="navbar-brand mb-0 text-white">
-        Article Validator Pro
+      Article Validator Pro
     </span>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="nav navbar-nav ml-auto">
-            <a class="btn nav-item nav-link active" href="./dashboard.html">Submit <span class="sr-only">(current)</span></a>
-            <a class="btn nav-item nav-link" href="./search.html">Search</a>
-            <a class="btn nav-item nav-link" href="./admin.html">Grade Items (Admin Only)</a>
-            <a class="btn nav-item nav-link" href="/logout">Log Out</a>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <div class="nav navbar-nav ml-auto">
+        <a class="btn nav-item nav-link active" href="./dashboard.html">Submit <span
+            class="sr-only">(current)</span></a>
+        <a class="btn nav-item nav-link" href="./search.html">Search</a>
+        <a class="btn nav-item nav-link" href="./admin.html">Grade Items (Admin Only)</a>
+        <a class="btn nav-item nav-link" href="/logout">Log Out</a>
+      </div>
     </div>
-</nav>
+  </nav>
+
 
   <div class="container mainContainer">
     <div class="row">
-      <div class="col-md-12">
-    <h2>Welcome to Article Validator Pro!</h2>
-    <p>Please use the form below to submit an item to be graded by our admins.</p>
-    <p>Do you need to find a news article to add to the database? You can search the news
-      on our <a href="./search.html">search page</a>. You can also search our archives for 
-      already graded articles.</p>
-    <hr>
-    <h4>Submit An Article To Be Graded:</h4>
-    <form id="addNew">
-      <div class="form-group">
-        <label for="title">Title:</label>
-        <input class="form-control" rows="10" id="title"></input>
-        <br>
-        <label for="urlToBe">URL:</label>
-        <input type="text" class="form-control" placeholder="https://www.example.com" id="urlToBe" />
+      <div class="col-md-12 headerCol">
+        <h2 class="pageTitle">Welcome to Article Validator Pro!</h2>
+        <p>Please use the form below to submit an item to be graded by our admins.</p>
+        <p>Do you need to find a news article to add to the database? You can search the news
+          on our <a href="./search.html">search page</a>. You can also search our archives for
+          already graded articles.</p>
+        </div>
+        <div class="col-md-12 submitCol">
+        <h4 class="pageTitle">Submit An Article To Be Graded:</h4>
+        <form id="addNew">
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input class="form-control" rows="10" id="title"></input>
+            <br>
+            <label for="urlToBe">URL:</label>
+            <input type="text" class="form-control" placeholder="https://www.example.com" id="urlToBe" />
+          </div>
+          <br>
+
+          <button type="submit" class="btn btn-dark submit btn-lg">Submit</button>
+        </form>
       </div>
-      <br>
+      </div>
+    </div>
 
-      <button type="submit" class="btn btn-dark submit btn-lg">Submit</button>
-    </form>
-  </div>
-</div>
 
-  
-  <div class="modal fade" id="thankModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Article submitted</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Thank you for submitting!  We will grade as fast as we can!
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <div class="modal fade" id="thankModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Article submitted</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Thank you for submitting! We will grade as fast as we can!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
+    <!-- footer -->
+    <footer class="footer">
+      <div class="container">
+        <span class="text-white">Copyright</span>
+      </div>
+    </footer>
 
 
-  <!-- Custom Script -->
-  <script src="./js/add.js" type="text/javascript"></script>
-  <script src="./js/factcheck.js"></script>
+    <!-- Custom Script -->
+    <script src="./js/add.js" type="text/javascript"></script>
+    <script src="./js/factcheck.js"></script>
 
 </body>
 

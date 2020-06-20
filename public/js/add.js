@@ -117,22 +117,14 @@ $(document).ready(function() {
     var newItemCardHeading = $("<div>");
     newItemCardHeading.addClass("card-header");
     var newItemTitle = $("<h2>");
-    var newItemCategory = $("<h5>");
-    newItemCategory.text(item.category);
-    newItemCategory.css({
-      float: "right",
-      "font-weight": "700",
-      "margin-top": "-15px",
-    });
     var newItemCardBody = $("<div>");
     newItemCardBody.addClass("card-body");
     var newItemBody = $("<p>");
     newItemTitle.text(item.title + " ");
     newItemBody.text("Grade: " + item.rating);
     newItemBody.append("<br />");
-    newItemBody.append("<a href='" + item.url + "'>" + item.url + "</a>");
+    newItemBody.append("<a href='target='_blank'" + item.url + "'>" + item.url + "</a>");
     newItemCardHeading.append(newItemTitle);
-    newItemCardHeading.append(newItemCategory);
     newItemCardBody.append(newItemBody);
     newItemCard.append(newItemCardHeading);
     newItemCard.append(newItemCardBody);

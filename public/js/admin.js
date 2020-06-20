@@ -82,19 +82,14 @@ $(document).ready(function() {
     newItemCard.addClass("card");
     var newItemCardHeading = $("<div>");
     newItemCardHeading.addClass("card-header");
+    newItemCardHeading.addClass("rounded");
     var newItemTitle = $("<h2>");
-    var newItemCategory = $("<h5>");
-    newItemCategory.css({
-      float: "right",
-      "font-weight": "700",
-      "margin-top": "-15px",
-    });
     var newItemCardBody = $("<div>");
     newItemCardBody.addClass("card-body");
     var newItemBody = $("<p>");
     newItemTitle.text(item.title + " ");
     newItemBody.append("<br />");
-    newItemBody.append("<a href='" + item.url + "'>" + item.url + "</a>");
+    newItemBody.append("<a href='target=_blank' '" + item.url + "'>" + item.url + "</a>");
 
     var rateSelect = $(
       "<div class='form-group'><label for='gradeSelect'>Select Grade:</label><select class='custom-select' id='gradeSelect'><option value='a'>A</option><option value='b'>B</option><option value='c'>C</option><option value='d'>D</option><option value='f'>F</option></select></div><br>"
