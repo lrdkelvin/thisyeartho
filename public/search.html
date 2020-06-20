@@ -35,14 +35,14 @@
 
     <div class="container mainContainer">
         <div class="row">
-            <div class="col-md-12">
-                <h2>Search</h2>
+            <div class="col-md-12 headerCol">
+                <h2 class="pageTitle">Search</h2>
                 <p>On this page you can search for articles to add to our archive
                     or you can search the archive for already graded articles.</p>
                 </div>
             </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 leftCol">
 
                 <h4 class="mt-4 mb-5">Search For A News Article By Topic</h4>
 
@@ -51,7 +51,7 @@
                 <button class="btn btn-dark btn-lg offset-md-3" id="search-button">Search</button>
             </div>
             <div class="col-md-6">
-                <h4 class="mt-4 mb-5">Search Rated Items By Rating</h4>
+                <h4 class="mt-4 mb-5">Search Articles By Rating</h4>
                 <div class="form-group text-body">
                     <p class="mt-3">Rating:</p>
                     <select class="custom-select" id="categoryDisplay">
@@ -143,7 +143,7 @@
           </div>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 leftCol">
                 <div class="card resultsCard">
                     <div class="card-header">
                         <h3><strong>Search results for: </strong><strong id="user-input"></strong></h3>
@@ -187,6 +187,13 @@
             </div>
         </div>
     </div>
+
+        <!-- footer -->
+        <footer class="footer">
+          <div class="container">
+              <span class="text-white">Copyright</span>
+          </div>
+      </footer>
 
     <!-- Custom Script -->
     <script src="./js/add.js" type="text/javascript"></script>
