@@ -127,7 +127,7 @@ $(document).ready(function() {
     newItemTitle.text(item.title + " ");
     newItemBody.text("Grade: " + item.rating);
     newItemBody.append("<br />");
-    newItemBody.append("<a href='target='_blank'" + item.url + "'>" + item.url + "</a>");
+    newItemBody.append("<a target='_blank' href='" + item.url + "'>" + item.url + "</a>");
     newItemCardHeading.append(newItemTitle);
     newItemCardBody.append(newItemBody);
     newItemCard.append(newItemCardHeading);
