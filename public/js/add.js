@@ -116,12 +116,6 @@ $(document).ready(function() {
     newItemCard.addClass("card");
     var newItemCardHeading = $("<div>");
     newItemCardHeading.addClass("card-header");
-    var deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
-    var editBtn = $("<button>");
-    editBtn.text("EDIT");
-    editBtn.addClass("edit btn btn-default");
     var newItemTitle = $("<h2>");
     var newItemCategory = $("<h5>");
     newItemCategory.text(item.category);
