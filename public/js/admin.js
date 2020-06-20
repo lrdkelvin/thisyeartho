@@ -13,9 +13,9 @@ $(document).ready(function() {
     event.preventDefault();
     var id = $(this).data("id");
 
-    if (ratingSelect === id) {
+    
 
-      var ratingInput = $("#gradeSelect").val();
+      var ratingInput = $("#gradeSelect" + id).val();
     console.log(ratingInput);
 
     var newGrade = {
@@ -31,7 +31,7 @@ $(document).ready(function() {
       }
     );
 
-    }
+    
 
     
   });
@@ -102,7 +102,7 @@ $(document).ready(function() {
     newItemBody.append("<a href='target=_blank' '" + item.url + "'>" + item.url + "</a>");
 
     var rateSelect = $(
-      "<div class='form-group'><label for='gradeSelect'>Select Grade:</label><select class='custom-select' id='gradeSelect' data-id='" + item.id + "'><option value='a'>A</option><option value='b'>B</option><option value='c'>C</option><option value='d'>D</option><option value='f'>F</option></select></div><br>"
+      "<div class='form-group'><label for='gradeSelect'>Select Grade:</label><select class='custom-select' id='gradeSelect" + item.id + "'><option value='a'>A</option><option value='b'>B</option><option value='c'>C</option><option value='d'>D</option><option value='f'>F</option></select></div><br>"
     );
     var submitGrade = $("<button type='submit' class='btn btn-dark submit btn-lg' data-id='" + item.id + "'>");
     submitGrade.append("Submit</button>");
