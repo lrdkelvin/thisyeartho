@@ -81,4 +81,8 @@ module.exports = function(app, passport) {
   app.get("/dashboard", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/dashboard.html"));
   });
+
+  app.get("/search", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/search.html"));
+  });
 };
