@@ -9,7 +9,7 @@ Users will need to sign up to be able to submit articles/videos for validity che
 ![alt text](public/img/home.png "Article Validator Pro")
 
 # Link to Deployed Site
-  * [Group-Project](https://)
+  * [Article Validator Pro](https://immense-basin-56733.herokuapp.com/)
   
 # Resources Used
   * HTML
@@ -23,17 +23,3 @@ Users will need to sign up to be able to submit articles/videos for validity che
 
 # Team Members 
   * Brandon, Christina, Miguel, Austin
-
-# Tasks 
- ## Brandon 
-   * Test 
-   * Test
- ## Christina 
-   * Test
-   * Test 
- ## Miguel: 
-   * Test
-   * Test
- ## Austin:
-   * Test
-   * Test
